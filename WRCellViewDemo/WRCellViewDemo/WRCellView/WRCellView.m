@@ -28,14 +28,12 @@ UIColor *CellRightTextColor = nil;
 
 @interface WRCellView ()
 @property (nonatomic, assign) WRCellStyle style;
-@property (nonatomic, strong) UIView *lastView;    // 类似中间件，中转作用
 @property (nonatomic, strong) UIView *line;
-@property (nonatomic, strong, readwrite) UIImageView *leftIcon;
-@property (nonatomic, strong, readwrite) UILabel *leftLabel;
-@property (nonatomic, strong, readwrite) UIImageView *rightIcon;
-@property (nonatomic, strong, readwrite) UILabel *rightLabel;
-@property (nonatomic, strong, readwrite) UIImageView *rightIndicator;
-@property (nonatomic, assign, readwrite) BOOL isLast;
+@property (nonatomic, strong) UIImageView *leftIcon;
+@property (nonatomic, strong) UILabel *leftLabel;
+@property (nonatomic, strong) UIImageView *rightIcon;
+@property (nonatomic, strong) UILabel *rightLabel;
+@property (nonatomic, strong) UIImageView *rightIndicator;
 @end
 
 @implementation WRCellView
@@ -128,13 +126,14 @@ UIColor *CellRightTextColor = nil;
     }
     
     //----------------------- 右侧
+    UIView *rightTmpView = nil;     // 类似中间件，中转作用
     if (self.style & 0x1) {
         [self addSubview:self.rightIndicator];
-        _lastView = self.rightIndicator;
+        rightTmpView = self.rightIndicator;
     }
     if (self.style & 0x10) {
         [self addSubview:self.rightIcon];
-        _lastView = self.rightIcon;
+        rightTmpView = self.rightIcon;
     }
     if (self.style & 0x100) {
         [self addSubview:self.rightLabel];
@@ -162,7 +161,7 @@ UIColor *CellRightTextColor = nil;
         CGSize leftLabelSize = [self.leftLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:kLeftLabelFont]}];
         CGFloat leftLabelWidth  = leftLabelSize.width;
         CGFloat leftLabelHeight = leftLabelSize.height;
-        if (self.leftIcon)
+        if (_leftIcon)
         {
             CGFloat leftLabelX = self.leftIcon.frame.origin.x + self.leftIcon.bounds.size.width + kPadding;
             CGFloat leftLabelY = (kSelfHeight - leftLabelHeight - kBottomLineHeight) / 2.0;
@@ -177,6 +176,7 @@ UIColor *CellRightTextColor = nil;
     
     
     //----------------------- 右侧
+    UIView *rightTmpView = nil;     // 类似中间件，中转作用
     if (self.style & 0x1)
     {
         CGFloat rightIndicatorWidth  = self.rightIndicator.image.size.width;
@@ -184,15 +184,16 @@ UIColor *CellRightTextColor = nil;
         CGFloat rightIndicatorX = kScreenWidth - kMargin - rightIndicatorWidth;
         CGFloat rightIndicatorY = (kSelfHeight - rightIndicatorHeight - kBottomLineHeight) / 2.0;
         self.rightIndicator.frame = CGRectMake(rightIndicatorX, rightIndicatorY, rightIndicatorWidth, rightIndicatorHeight);
+        rightTmpView = self.rightIndicator;
     }
     
     if (self.style & 0x10)
     {
         CGFloat rightIconWidth  = self.rightIcon.image.size.width;
         CGFloat rightIconHeight = self.rightIcon.image.size.height;
-        if (self.lastView)
+        if (rightTmpView)
         {
-            CGFloat rightIconX = self.lastView.frame.origin.x - kPadding - rightIconWidth;
+            CGFloat rightIconX = rightTmpView.frame.origin.x - kPadding - rightIconWidth;
             CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
             self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
         }
@@ -202,6 +203,7 @@ UIColor *CellRightTextColor = nil;
             CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
             self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
         }
+        rightTmpView = self.rightIcon;
     }
     
     if (self.style & 0x100)
@@ -209,9 +211,9 @@ UIColor *CellRightTextColor = nil;
         CGSize rightLabelSize = [self.rightLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:kRightLabelFont]}];
         CGFloat rightLabelWidth  = rightLabelSize.width;
         CGFloat rightLabelHeight = rightLabelSize.height;
-        if (self.lastView)
+        if (rightTmpView)
         {
-            CGFloat rightLabelX = self.lastView.frame.origin.x - kPadding - rightLabelWidth;
+            CGFloat rightLabelX = rightTmpView.frame.origin.x - kPadding - rightLabelWidth;
             CGFloat rightLabelY = (kSelfHeight - rightLabelHeight - kBottomLineHeight) / 2.0;
             self.rightLabel.frame = CGRectMake(rightLabelX, rightLabelY, rightLabelWidth, rightLabelHeight);
         }
@@ -223,12 +225,7 @@ UIColor *CellRightTextColor = nil;
         }
     }
     
-    if (self.isLast) {
-        self.line.frame = CGRectMake(0, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
-    }
-    else {
-        self.line.frame = CGRectMake(kMargin, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
-    }
+    self.line.frame = CGRectMake(kMargin, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
 }
 
 #pragma mark -  设置简单的轻点 block事件
