@@ -14,6 +14,7 @@
 		1A45BC2B1EADDA10007ECB5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A45BC2A1EADDA10007ECB5D /* Assets.xcassets */; };
 		1A45BC2E1EADDA10007ECB5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A45BC2C1EADDA10007ECB5D /* LaunchScreen.storyboard */; };
 		1A45BC391EADDA10007ECB5D /* WRCellViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC381EADDA10007ECB5D /* WRCellViewDemoTests.m */; };
+		1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC451EADE0F3007ECB5D /* WRCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		1A45BC341EADDA10007ECB5D /* WRCellViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WRCellViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A45BC381EADDA10007ECB5D /* WRCellViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WRCellViewDemoTests.m; sourceTree = "<group>"; };
 		1A45BC3A1EADDA10007ECB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A45BC441EADE0F3007ECB5D /* WRCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCellView.h; sourceTree = "<group>"; };
+		1A45BC451EADE0F3007ECB5D /* WRCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 			children = (
 				1A45BC211EADDA10007ECB5D /* AppDelegate.h */,
 				1A45BC221EADDA10007ECB5D /* AppDelegate.m */,
+				1A45BC431EADE0DC007ECB5D /* WRCellView */,
 				1A45BC241EADDA10007ECB5D /* ViewController.h */,
 				1A45BC251EADDA10007ECB5D /* ViewController.m */,
 				1A45BC271EADDA10007ECB5D /* Main.storyboard */,
@@ -109,6 +113,15 @@
 				1A45BC3A1EADDA10007ECB5D /* Info.plist */,
 			);
 			path = WRCellViewDemoTests;
+			sourceTree = "<group>";
+		};
+		1A45BC431EADE0DC007ECB5D /* WRCellView */ = {
+			isa = PBXGroup;
+			children = (
+				1A45BC441EADE0F3007ECB5D /* WRCellView.h */,
+				1A45BC451EADE0F3007ECB5D /* WRCellView.m */,
+			);
+			path = WRCellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +230,7 @@
 			files = (
 				1A45BC261EADDA10007ECB5D /* ViewController.m in Sources */,
 				1A45BC231EADDA10007ECB5D /* AppDelegate.m in Sources */,
+				1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */,
 				1A45BC201EADDA10007ECB5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
