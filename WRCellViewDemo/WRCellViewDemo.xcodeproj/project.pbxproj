@@ -16,6 +16,8 @@
 		1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC451EADE0F3007ECB5D /* WRCellView.m */; };
 		1A6343B81EAEF1CF00C646B8 /* DemoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343B71EAEF1CF00C646B8 /* DemoListController.m */; };
 		1A6343BB1EAEF8FD00C646B8 /* MineInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343BA1EAEF8FD00C646B8 /* MineInfoController.m */; };
+		1A6343BE1EAF30AF00C646B8 /* GaoDeSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343BD1EAF30AF00C646B8 /* GaoDeSettingController.m */; };
+		1A6343C11EAF46FE00C646B8 /* NBAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343C01EAF46FE00C646B8 /* NBAController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		1A6343B71EAEF1CF00C646B8 /* DemoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoListController.m; sourceTree = "<group>"; };
 		1A6343B91EAEF8FD00C646B8 /* MineInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineInfoController.h; sourceTree = "<group>"; };
 		1A6343BA1EAEF8FD00C646B8 /* MineInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineInfoController.m; sourceTree = "<group>"; };
+		1A6343BC1EAF30AF00C646B8 /* GaoDeSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaoDeSettingController.h; sourceTree = "<group>"; };
+		1A6343BD1EAF30AF00C646B8 /* GaoDeSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaoDeSettingController.m; sourceTree = "<group>"; };
+		1A6343BF1EAF46FE00C646B8 /* NBAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBAController.h; sourceTree = "<group>"; };
+		1A6343C01EAF46FE00C646B8 /* NBAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBAController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,10 @@
 				1A45BC251EADDA10007ECB5D /* ViewController.m */,
 				1A6343B91EAEF8FD00C646B8 /* MineInfoController.h */,
 				1A6343BA1EAEF8FD00C646B8 /* MineInfoController.m */,
+				1A6343BC1EAF30AF00C646B8 /* GaoDeSettingController.h */,
+				1A6343BD1EAF30AF00C646B8 /* GaoDeSettingController.m */,
+				1A6343BF1EAF46FE00C646B8 /* NBAController.h */,
+				1A6343C01EAF46FE00C646B8 /* NBAController.m */,
 				1A45BC2A1EADDA10007ECB5D /* Assets.xcassets */,
 				1A45BC2C1EADDA10007ECB5D /* LaunchScreen.storyboard */,
 				1A45BC2F1EADDA10007ECB5D /* Info.plist */,
@@ -237,9 +247,11 @@
 				1A45BC261EADDA10007ECB5D /* ViewController.m in Sources */,
 				1A45BC231EADDA10007ECB5D /* AppDelegate.m in Sources */,
 				1A6343BB1EAEF8FD00C646B8 /* MineInfoController.m in Sources */,
+				1A6343BE1EAF30AF00C646B8 /* GaoDeSettingController.m in Sources */,
 				1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */,
 				1A6343B81EAEF1CF00C646B8 /* DemoListController.m in Sources */,
 				1A45BC201EADDA10007ECB5D /* main.m in Sources */,
+				1A6343C11EAF46FE00C646B8 /* NBAController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

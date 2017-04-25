@@ -9,6 +9,8 @@
 #import "DemoListController.h"
 #import "ViewController.h"
 #import "MineInfoController.h"
+#import "GaoDeSettingController.h"
+#import "NBAController.h"
 
 @interface DemoListController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -43,13 +45,10 @@
             str = @"微信个人信息";
             break;
         case 2:
-            str = @"wait";
+            str = @"高德地图我的";
             break;
         case 3:
-            str = @"wait";
-            break;
-        case 4:
-            str = @"wait";
+            str = @"NBA";
             break;
             
         default:
@@ -83,20 +82,14 @@
             break;
         case 2:
         {
-            ViewController *basicVC = [ViewController new];
-            [self.navigationController pushViewController:basicVC animated:YES];
+            GaoDeSettingController *gdSettingVC = [GaoDeSettingController new];
+            [self.navigationController pushViewController:gdSettingVC animated:YES];
         }
             break;
         case 3:
         {
-            ViewController *basicVC = [ViewController new];
-            [self.navigationController pushViewController:basicVC animated:YES];
-        }
-            break;
-        case 4:
-        {
-            ViewController *basicVC = [ViewController new];
-            [self.navigationController pushViewController:basicVC animated:YES];
+            NBAController *nbaVC = [NBAController new];
+            [self.navigationController pushViewController:nbaVC animated:YES];
         }
             break;
         default:

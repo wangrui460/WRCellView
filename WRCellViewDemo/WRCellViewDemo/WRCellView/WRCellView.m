@@ -12,6 +12,7 @@
 #define kScreenWidth      [UIScreen mainScreen].bounds.size.width
 #define kSelfHeight       self.bounds.size.height
 #define kBottomLineHeight 0.5
+#define kTopLineHeight    0.5
 #define kMargin           16
 #define kPadding          6
 #define kLeftLabelFont    16
@@ -28,7 +29,8 @@ UIColor *CellRightTextColor = nil;
 
 @interface WRCellView ()
 @property (nonatomic, assign) WRCellStyle style;
-@property (nonatomic, strong) UIView *line;
+@property (nonatomic, strong) UIView *topLine;
+@property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UIImageView *leftIcon;
 @property (nonatomic, strong) UILabel *leftLabel;
 @property (nonatomic, strong) UIImageView *rightIcon;
@@ -38,7 +40,7 @@ UIColor *CellRightTextColor = nil;
 
 @implementation WRCellView
 {
-    BOOL mLineLeftZero;
+    CGFloat mCellBottomLineX;
 }
 
 + (void)load
@@ -100,8 +102,14 @@ UIColor *CellRightTextColor = nil;
 
 - (void)setLineStyleWithLeftZero
 {
-    mLineLeftZero = YES;
-    self.line.frame = CGRectMake(0, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
+    mCellBottomLineX = 0;
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
+}
+
+- (void)setLineStyleWithLeftEqualLabelLeft
+{
+    mCellBottomLineX = kMargin + self.leftIcon.image.size.width + kPadding;
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -119,6 +127,7 @@ UIColor *CellRightTextColor = nil;
 - (void)setupView
 {
     self.backgroundColor = CellNormalColor;
+    mCellBottomLineX = kMargin;
     //----------------------- 左侧
     if (self.style & 0x10000) {
         [self addSubview:self.leftIcon];
@@ -141,9 +150,16 @@ UIColor *CellRightTextColor = nil;
         [self addSubview:self.rightIcon];
     }
 
-    self.line = [[UIView alloc] init];
-    self.line.backgroundColor = CellSegmentColor;
-    [self addSubview:self.line];
+    self.bottomLine = [[UIView alloc] init];
+    self.bottomLine.backgroundColor = CellSegmentColor;
+    [self addSubview:self.bottomLine];
+    
+    self.topLine = [[UIView alloc] init];
+    self.topLine.backgroundColor = CellSegmentColor;
+    [self addSubview:self.topLine];
+    self.topLine.frame = CGRectMake(0, 0, kScreenWidth, kTopLineHeight);
+    [self bringSubviewToFront:self.topLine];
+    self.topLine.hidden = YES;
 }
 
 - (void)layoutSubviews
@@ -226,14 +242,7 @@ UIColor *CellRightTextColor = nil;
             self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
         }
     }
-    
-    if (mLineLeftZero == YES) {
-        self.line.frame = CGRectMake(0, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
-    }
-    else {
-        self.line.frame = CGRectMake(kMargin, kSelfHeight - 0.5, kScreenWidth - kMargin, kBottomLineHeight);
-    }
-    
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
 #pragma mark -  设置简单的轻点 block事件
@@ -262,7 +271,11 @@ UIColor *CellRightTextColor = nil;
 
 #pragma mark - getter / setter
 - (void)setHideBottomLine:(BOOL)hideBottomLine {
-    _line.hidden = hideBottomLine;
+    _bottomLine.hidden = hideBottomLine;
+}
+
+- (void)setShowTopLine:(BOOL)showTopLine {
+    _topLine.hidden = !showTopLine;
 }
 
 - (UIImageView *)leftIcon {

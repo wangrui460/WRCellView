@@ -17,7 +17,7 @@
 */
 typedef NS_ENUM(NSInteger, WRCellStyle)
 {   // 以下列举的都是常用的
-    WRCellStyle_Label                   = 0x100,
+    WRCellStyle_Label                   = 0x10,
     WRCellStyleLabel_                   = 0x1000,
     WRCellStyleLabel_Indicator          = 0x1001,
     WRCellStyleLabel_IconLabelIndicator = 0x1111,
@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, WRCellStyle)
     WRCellStyleLabel_Label              = 0x1010,
     WRCellStyleLabel_Icon               = 0x1100,
     WRCellStyleLabel_IconIndicator      = 0x1101,
+    WRCellStyleIcon_Indicator           = 0x10001,
     WRCellStyleIconLabel_Indicator      = 0x11001,
     WRCellStyleIconLabel_Icon           = 0x11100,
     WRCellStyleIconLabel_LabelIndicator = 0x11011,
@@ -52,7 +53,9 @@ FOUNDATION_EXTERN UIColor *CellRightTextColor;
 - (instancetype)initWithFrame:(CGRect)frame lineStyle:(WRCellStyle)style;
 - (instancetype)initWithLineStyle:(WRCellStyle)style;
 - (void)setLineStyleWithLeftZero;
+- (void)setLineStyleWithLeftEqualLabelLeft;
 - (void)setHideBottomLine:(BOOL)hideBottomLine;
+- (void)setShowTopLine:(BOOL)showTopLine;
 @end
 
 
