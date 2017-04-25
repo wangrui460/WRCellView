@@ -10,11 +10,11 @@
 		1A45BC201EADDA10007ECB5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC1F1EADDA10007ECB5D /* main.m */; };
 		1A45BC231EADDA10007ECB5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC221EADDA10007ECB5D /* AppDelegate.m */; };
 		1A45BC261EADDA10007ECB5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC251EADDA10007ECB5D /* ViewController.m */; };
-		1A45BC291EADDA10007ECB5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A45BC271EADDA10007ECB5D /* Main.storyboard */; };
 		1A45BC2B1EADDA10007ECB5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A45BC2A1EADDA10007ECB5D /* Assets.xcassets */; };
 		1A45BC2E1EADDA10007ECB5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A45BC2C1EADDA10007ECB5D /* LaunchScreen.storyboard */; };
 		1A45BC391EADDA10007ECB5D /* WRCellViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC381EADDA10007ECB5D /* WRCellViewDemoTests.m */; };
 		1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BC451EADE0F3007ECB5D /* WRCellView.m */; };
+		1A6343B81EAEF1CF00C646B8 /* DemoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343B71EAEF1CF00C646B8 /* DemoListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,6 @@
 		1A45BC221EADDA10007ECB5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A45BC241EADDA10007ECB5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1A45BC251EADDA10007ECB5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1A45BC281EADDA10007ECB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A45BC2A1EADDA10007ECB5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A45BC2D1EADDA10007ECB5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A45BC2F1EADDA10007ECB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +42,8 @@
 		1A45BC3A1EADDA10007ECB5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A45BC441EADE0F3007ECB5D /* WRCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCellView.h; sourceTree = "<group>"; };
 		1A45BC451EADE0F3007ECB5D /* WRCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCellView.m; sourceTree = "<group>"; };
+		1A6343B61EAEF1CF00C646B8 /* DemoListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoListController.h; sourceTree = "<group>"; };
+		1A6343B71EAEF1CF00C646B8 /* DemoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +87,11 @@
 			children = (
 				1A45BC211EADDA10007ECB5D /* AppDelegate.h */,
 				1A45BC221EADDA10007ECB5D /* AppDelegate.m */,
+				1A6343B61EAEF1CF00C646B8 /* DemoListController.h */,
+				1A6343B71EAEF1CF00C646B8 /* DemoListController.m */,
 				1A45BC431EADE0DC007ECB5D /* WRCellView */,
 				1A45BC241EADDA10007ECB5D /* ViewController.h */,
 				1A45BC251EADDA10007ECB5D /* ViewController.m */,
-				1A45BC271EADDA10007ECB5D /* Main.storyboard */,
 				1A45BC2A1EADDA10007ECB5D /* Assets.xcassets */,
 				1A45BC2C1EADDA10007ECB5D /* LaunchScreen.storyboard */,
 				1A45BC2F1EADDA10007ECB5D /* Info.plist */,
@@ -210,7 +212,6 @@
 			files = (
 				1A45BC2E1EADDA10007ECB5D /* LaunchScreen.storyboard in Resources */,
 				1A45BC2B1EADDA10007ECB5D /* Assets.xcassets in Resources */,
-				1A45BC291EADDA10007ECB5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +232,7 @@
 				1A45BC261EADDA10007ECB5D /* ViewController.m in Sources */,
 				1A45BC231EADDA10007ECB5D /* AppDelegate.m in Sources */,
 				1A45BC461EADE0F3007ECB5D /* WRCellView.m in Sources */,
+				1A6343B81EAEF1CF00C646B8 /* DemoListController.m in Sources */,
 				1A45BC201EADDA10007ECB5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +256,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1A45BC271EADDA10007ECB5D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A45BC281EADDA10007ECB5D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1A45BC2C1EADDA10007ECB5D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +426,7 @@
 				1A45BC3F1EADDA10007ECB5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A45BC401EADDA10007ECB5D /* Build configuration list for PBXNativeTarget "WRCellViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +435,7 @@
 				1A45BC421EADDA10007ECB5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

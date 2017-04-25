@@ -11,6 +11,7 @@
 
 #define kScreenWidth      [UIScreen mainScreen].bounds.size.width
 #define WRCellViewHeight  50
+#define kBackColor [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1.0]
 
 @interface ViewController ()
 @property (nonatomic, strong) UIScrollView* containerView;
@@ -33,7 +34,7 @@
 {
     [super viewDidLoad];
     self.containerView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, self.view.bounds.size.height)];
-    self.containerView.backgroundColor = [UIColor grayColor];
+    self.containerView.backgroundColor = kBackColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.containerView];
 
@@ -160,6 +161,7 @@
     if (_rightLabelView == nil) {
         _rightLabelView = [[WRCellView alloc] initWithLineStyle:WRCellStyle_Label];
         _rightLabelView.rightLabel.text = @"_Label";
+        [_rightLabelView setLineStyleWithLeftZero];
     }
     return _rightLabelView;
 }
@@ -178,6 +180,7 @@
         _label_LabelIconIndicatorView.leftLabel.text = @"Label_LabelIconIndicator";
         _label_LabelIconIndicatorView.rightLabel.text = @"点击";
         _label_LabelIconIndicatorView.rightIcon.image = [UIImage imageNamed:@"myFriendIcon"];
+        [_label_LabelIconIndicatorView setLineStyleWithLeftZero];
     }
     return _label_LabelIconIndicatorView;
 }
@@ -196,6 +199,7 @@
         _label_LabelView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_Label];
         _label_LabelView.leftLabel.text = @"Label_Label";
         _label_LabelView.rightLabel.text = @"点击";
+        [_label_LabelView setLineStyleWithLeftZero];
     }
     return _label_LabelView;
 }
@@ -243,6 +247,7 @@
         _iconLabel_LabelIndicatorView.leftLabel.text = @"IconLabel_LabelIndicator";
         _iconLabel_LabelIndicatorView.leftIcon.image = [UIImage imageNamed:@"myFriendIcon"];
         _iconLabel_LabelIndicatorView.rightLabel.text = @"点击";
+        [_iconLabel_LabelIndicatorView setLineStyleWithLeftZero];
     }
     return _iconLabel_LabelIndicatorView;
 }

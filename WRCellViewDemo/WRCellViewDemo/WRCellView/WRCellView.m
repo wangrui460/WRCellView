@@ -37,6 +37,9 @@ UIColor *CellRightTextColor = nil;
 @end
 
 @implementation WRCellView
+{
+    BOOL mLineLeftZero;
+}
 
 + (void)load
 {
@@ -97,6 +100,7 @@ UIColor *CellRightTextColor = nil;
 
 - (void)setLineStyleWithLeftZero
 {
+    mLineLeftZero = YES;
     self.line.frame = CGRectMake(0, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
 }
 
@@ -225,7 +229,13 @@ UIColor *CellRightTextColor = nil;
         }
     }
     
-    self.line.frame = CGRectMake(kMargin, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
+    if (mLineLeftZero == YES) {
+        self.line.frame = CGRectMake(0, kSelfHeight - 0.5, kScreenWidth, kBottomLineHeight);
+    }
+    else {
+        self.line.frame = CGRectMake(kMargin, kSelfHeight - 0.5, kScreenWidth - kMargin, kBottomLineHeight);
+    }
+    
 }
 
 #pragma mark -  设置简单的轻点 block事件

@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, WRCellStyle)
     WRCellStyleLabel_Label              = 0x1100,
     WRCellStyleLabel_Icon               = 0x1010,
     WRCellStyleLabel_IconIndicator      = 0x1011,
-    
     WRCellStyleIconLabel_Indicator      = 0x11001,
     WRCellStyleIconLabel_Icon           = 0x11010,
     WRCellStyleIconLabel_LabelIndicator = 0x11101,
@@ -49,11 +48,11 @@ FOUNDATION_EXTERN UIColor *CellRightTextColor;
 @property (nonatomic, strong, readonly) UILabel     *rightLabel;
 @property (nonatomic, strong, readonly) UIImageView *rightIndicator;
 @property (nonatomic, copy) VoidBlock tapBlock;
-@property (nonatomic, assign) BOOL hideBottomLine;
 
 - (instancetype)initWithFrame:(CGRect)frame lineStyle:(WRCellStyle)style;
 - (instancetype)initWithLineStyle:(WRCellStyle)style;
 - (void)setLineStyleWithLeftZero;
+- (void)setHideBottomLine:(BOOL)hideBottomLine;
 @end
 
 
