@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 /**
-    左侧 icon label  右侧 label icon indicator
-     0x   1    1           1    1    1
+    左侧 icon label  右侧 icon  label indicator
+     0x   1    1          1     1       1
  
     按位与运算 按位与运算符"&"是双目运算符。其功能是参与运算的两数各对应的二进位相与。只有对应的两个二进位均为1时，结果位才为1 ，否则为0。参与运算的数以补码方式出现。
     例如：9 & 5 可写算式如下： 00001001 & 00000101 = 00000001; 可见 9 & 5 = 1。
@@ -20,14 +20,14 @@ typedef NS_ENUM(NSInteger, WRCellStyle)
     WRCellStyle_Label                   = 0x100,
     WRCellStyleLabel_                   = 0x1000,
     WRCellStyleLabel_Indicator          = 0x1001,
-    WRCellStyleLabel_LabelIconIndicator = 0x1111,
-    WRCellStyleLabel_LabelIndicator     = 0x1101,
-    WRCellStyleLabel_Label              = 0x1100,
-    WRCellStyleLabel_Icon               = 0x1010,
-    WRCellStyleLabel_IconIndicator      = 0x1011,
+    WRCellStyleLabel_IconLabelIndicator = 0x1111,
+    WRCellStyleLabel_LabelIndicator     = 0x1011,
+    WRCellStyleLabel_Label              = 0x1010,
+    WRCellStyleLabel_Icon               = 0x1100,
+    WRCellStyleLabel_IconIndicator      = 0x1101,
     WRCellStyleIconLabel_Indicator      = 0x11001,
-    WRCellStyleIconLabel_Icon           = 0x11010,
-    WRCellStyleIconLabel_LabelIndicator = 0x11101,
+    WRCellStyleIconLabel_Icon           = 0x11100,
+    WRCellStyleIconLabel_LabelIndicator = 0x11011,
 };
 
 typedef void (^VoidBlock)();

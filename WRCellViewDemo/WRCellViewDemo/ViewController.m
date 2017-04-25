@@ -18,7 +18,7 @@
 @property (nonatomic, strong) WRCellView*   leftLabelView;
 @property (nonatomic, strong) WRCellView*   rightLabelView;
 @property (nonatomic, strong) WRCellView*   label_IndicatorView;
-@property (nonatomic, strong) WRCellView*   label_LabelIconIndicatorView;
+@property (nonatomic, strong) WRCellView*   label_IconLabelIndicatorView;
 @property (nonatomic, strong) WRCellView*   label_LabelIndicatorView;
 @property (nonatomic, strong) WRCellView*   label_LabelView;
 @property (nonatomic, strong) WRCellView*   label_IconView;
@@ -48,7 +48,7 @@
     [self.containerView addSubview:self.leftLabelView];
     [self.containerView addSubview:self.rightLabelView];
     [self.containerView addSubview:self.label_IndicatorView];
-    [self.containerView addSubview:self.label_LabelIconIndicatorView];
+    [self.containerView addSubview:self.label_IconLabelIndicatorView];
     [self.containerView addSubview:self.label_LabelIndicatorView];
     [self.containerView addSubview:self.label_LabelView];
     [self.containerView addSubview:self.label_IconView];
@@ -71,10 +71,10 @@
     
     self.label_IconView.frame = CGRectMake(0, _label_LabelView.frame.origin.y+20 + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.label_IconIndicatorView.frame = CGRectMake(0, _label_IconView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
-    self.label_LabelIconIndicatorView.frame = CGRectMake(0, _label_IconIndicatorView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
+    self.label_IconLabelIndicatorView.frame = CGRectMake(0, _label_IconIndicatorView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     
     
-    self.iconLabel_IndicatorView.frame = CGRectMake(0, _label_LabelIconIndicatorView.frame.origin.y+20 + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
+    self.iconLabel_IndicatorView.frame = CGRectMake(0, _label_IconLabelIndicatorView.frame.origin.y+20 + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.iconLabel_IconView.frame = CGRectMake(0, _iconLabel_IndicatorView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.iconLabel_LabelIndicatorView.frame = CGRectMake(0, _iconLabel_IconView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     
@@ -99,7 +99,7 @@
         [pThis openNewVC];
     };
     
-    self.label_LabelIconIndicatorView.tapBlock = ^{
+    self.label_IconLabelIndicatorView.tapBlock = ^{
         __strong typeof(self) pThis = weakSelf;
         [pThis openNewVC];
     };
@@ -174,15 +174,15 @@
     return _label_IndicatorView;
 }
 
-- (WRCellView *)label_LabelIconIndicatorView {
-    if (_label_LabelIconIndicatorView == nil) {
-        _label_LabelIconIndicatorView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_LabelIconIndicator];
-        _label_LabelIconIndicatorView.leftLabel.text = @"Label_LabelIconIndicator";
-        _label_LabelIconIndicatorView.rightLabel.text = @"点击";
-        _label_LabelIconIndicatorView.rightIcon.image = [UIImage imageNamed:@"myFriendIcon"];
-        [_label_LabelIconIndicatorView setLineStyleWithLeftZero];
+- (WRCellView *)label_IconLabelIndicatorView {
+    if (_label_IconLabelIndicatorView == nil) {
+        _label_IconLabelIndicatorView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_IconLabelIndicator];
+        _label_IconLabelIndicatorView.leftLabel.text = @"Label_IconLabelIndicator";
+        _label_IconLabelIndicatorView.rightLabel.text = @"点击";
+        _label_IconLabelIndicatorView.rightIcon.image = [UIImage imageNamed:@"myFriendIcon"];
+        [_label_IconLabelIndicatorView setLineStyleWithLeftZero];
     }
-    return _label_LabelIconIndicatorView;
+    return _label_IconLabelIndicatorView;
 }
 
 - (WRCellView *)label_LabelIndicatorView {

@@ -134,11 +134,11 @@ UIColor *CellRightTextColor = nil;
         rightTmpView = self.rightIndicator;
     }
     if (self.style & 0x10) {
-        [self addSubview:self.rightIcon];
-        rightTmpView = self.rightIcon;
+        [self addSubview:self.rightLabel];
+        rightTmpView = self.rightLabel;
     }
     if (self.style & 0x100) {
-        [self addSubview:self.rightLabel];
+        [self addSubview:self.rightIcon];
     }
 
     self.line = [[UIView alloc] init];
@@ -191,25 +191,6 @@ UIColor *CellRightTextColor = nil;
     
     if (self.style & 0x10)
     {
-        CGFloat rightIconWidth  = self.rightIcon.image.size.width;
-        CGFloat rightIconHeight = self.rightIcon.image.size.height;
-        if (rightTmpView)
-        {
-            CGFloat rightIconX = rightTmpView.frame.origin.x - kPadding - rightIconWidth;
-            CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
-            self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
-        }
-        else
-        {
-            CGFloat rightIconX = kScreenWidth - kMargin - rightIconWidth;
-            CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
-            self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
-        }
-        rightTmpView = self.rightIcon;
-    }
-    
-    if (self.style & 0x100)
-    {
         CGSize rightLabelSize = [self.rightLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:kRightLabelFont]}];
         CGFloat rightLabelWidth  = rightLabelSize.width;
         CGFloat rightLabelHeight = rightLabelSize.height;
@@ -224,6 +205,25 @@ UIColor *CellRightTextColor = nil;
             CGFloat rightLabelX = kScreenWidth - kMargin - rightLabelWidth;
             CGFloat rightLabelY = (kSelfHeight - rightLabelHeight - kBottomLineHeight) / 2.0;
             self.rightLabel.frame = CGRectMake(rightLabelX, rightLabelY, rightLabelWidth, rightLabelHeight);
+        }
+        rightTmpView = self.rightLabel;
+    }
+    
+    if (self.style & 0x100)
+    {
+        CGFloat rightIconWidth  = self.rightIcon.image.size.width;
+        CGFloat rightIconHeight = self.rightIcon.image.size.height;
+        if (rightTmpView)
+        {
+            CGFloat rightIconX = rightTmpView.frame.origin.x - kPadding - rightIconWidth;
+            CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
+            self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
+        }
+        else
+        {
+            CGFloat rightIconX = kScreenWidth - kMargin - rightIconWidth;
+            CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
+            self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
         }
     }
     
