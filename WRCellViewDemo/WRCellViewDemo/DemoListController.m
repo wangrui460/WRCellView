@@ -8,6 +8,7 @@
 
 #import "DemoListController.h"
 #import "ViewController.h"
+#import "MineInfoController.h"
 
 @interface DemoListController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -39,16 +40,16 @@
             str = @"常用Style";
             break;
         case 1:
-            str = @"超过临界点移动导航栏";
+            str = @"微信个人信息";
             break;
         case 2:
-            str = @"超过临界点多少，移动导航栏多少(不会超过44)";
+            str = @"wait";
             break;
         case 3:
-            str = @"类似qq应用空间效果";
+            str = @"wait";
             break;
         case 4:
-            str = @"类似QQ空间效果";
+            str = @"wait";
             break;
             
         default:
@@ -76,8 +77,8 @@
             break;
         case 1:
         {
-            ViewController *basicVC = [ViewController new];
-            [self.navigationController pushViewController:basicVC animated:YES];
+            MineInfoController *mineInfoVC = [MineInfoController new];
+            [self.navigationController pushViewController:mineInfoVC animated:YES];
         }
             break;
         case 2:
