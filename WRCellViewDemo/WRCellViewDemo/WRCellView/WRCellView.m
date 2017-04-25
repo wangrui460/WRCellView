@@ -112,8 +112,6 @@ UIColor *CellRightTextColor = nil;
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.backgroundColor = CellNormalColor;
 }
-
-// 当从其他界面回到这个界面后，这个view处于未选中状态
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.backgroundColor = CellNormalColor;
 }

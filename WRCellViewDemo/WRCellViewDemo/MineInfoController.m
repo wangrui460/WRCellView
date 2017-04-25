@@ -59,7 +59,7 @@
     self.headerView.frame = CGRectMake(0, 15, kScreenWidth, 100);
     self.nameView.frame = CGRectMake(0, _headerView.frame.origin.y + self.headerView.bounds.size.height, kScreenWidth, WRCellViewHeight);
     
-    self.wxNumberView.frame = CGRectMake(0, _nameView.frame.origin.y+20 + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
+    self.wxNumberView.frame = CGRectMake(0, _nameView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.mineQRView.frame = CGRectMake(0, _wxNumberView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.addressView.frame = CGRectMake(0, _mineQRView.frame.origin.y + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
     self.sexView.frame = CGRectMake(0, _addressView.frame.origin.y+20 + WRCellViewHeight, kScreenWidth, WRCellViewHeight);
@@ -145,6 +145,7 @@
     if (_addressView == nil) {
         _addressView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_Indicator];
         _addressView.leftLabel.text = @"我的地址";
+        [_addressView setLineStyleWithLeftZero];
     }
     return _addressView;
 }
@@ -181,6 +182,7 @@
         _signView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_LabelIndicator];
         _signView.leftLabel.text = @"个性签名";
         _signView.rightLabel.text = @"爱别人的同事也是爱自己";
+        [_signView setLineStyleWithLeftZero];
     }
     return _signView;
 }
