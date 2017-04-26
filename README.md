@@ -16,7 +16,7 @@
 ## 2️⃣. How To Use 使用
 
 **1.以下是常用的style **
-<pre><code>
+```
 /**
 左侧 icon label  右侧 icon  label indicator
 0x   1    1          1     1       1
@@ -26,23 +26,23 @@
 */
 typedef NS_ENUM(NSInteger, WRCellStyle)
 {   // 以下列举的都是常用的
-WRCellStyle_Label                   = 0x10,
-WRCellStyleLabel_                   = 0x1000,
-WRCellStyleLabel_Indicator          = 0x1001,
-WRCellStyleLabel_IconLabelIndicator = 0x1111,
-WRCellStyleLabel_LabelIndicator     = 0x1011,
-WRCellStyleLabel_Label              = 0x1010,
-WRCellStyleLabel_Icon               = 0x1100,
-WRCellStyleLabel_IconIndicator      = 0x1101,
-WRCellStyleIcon_Indicator           = 0x10001,
-WRCellStyleIconLabel_Indicator      = 0x11001,
-WRCellStyleIconLabel_Icon           = 0x11100,
-WRCellStyleIconLabel_LabelIndicator = 0x11011,
+    WRCellStyle_Label                   = 0x10,
+    WRCellStyleLabel_                   = 0x1000,
+    WRCellStyleLabel_Indicator          = 0x1001,
+    WRCellStyleLabel_IconLabelIndicator = 0x1111,
+    WRCellStyleLabel_LabelIndicator     = 0x1011,
+    WRCellStyleLabel_Label              = 0x1010,
+    WRCellStyleLabel_Icon               = 0x1100,
+    WRCellStyleLabel_IconIndicator      = 0x1101,
+    WRCellStyleIcon_Indicator           = 0x10001,
+    WRCellStyleIconLabel_Indicator      = 0x11001,
+    WRCellStyleIconLabel_Icon           = 0x11100,
+    WRCellStyleIconLabel_LabelIndicator = 0x11011,
 };
-</code></pre>
+```
 
 **2. 接口**
-<pre><code>
+```
 - (instancetype)initWithFrame:(CGRect)frame lineStyle:(WRCellStyle)style;
 - (instancetype)initWithLineStyle:(WRCellStyle)style;
 /** 设置底部的那条线距左边为0 */
@@ -53,20 +53,20 @@ WRCellStyleIconLabel_LabelIndicator = 0x11011,
 - (void)setHideBottomLine:(BOOL)hideBottomLine;
 /** 显示上面的横线，默认不显示 */
 - (void)setShowTopLine:(BOOL)showTopLine;
-</code></pre>
+```
 
 **3. 举例说明**
-<pre><code>
+```
 - (WRCellView *)signView {
-if (_signView == nil) {
-_signView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_LabelIndicator];
-_signView.leftLabel.text = @"个性签名";
-_signView.rightLabel.text = @"爱别人的同事也是爱自己";
-[_signView setLineStyleWithLeftZero];
+    if (_signView == nil) {
+        _signView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_LabelIndicator];
+        _signView.leftLabel.text = @"个性签名";
+        _signView.rightLabel.text = @"爱别人的同事也是爱自己";
+        [_signView setLineStyleWithLeftZero];
+    }
+    return _signView;
 }
-return _signView;
-}
-</code></pre>
+```
 
 
 ## 3️⃣. More 更多 
