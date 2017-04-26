@@ -16,7 +16,7 @@
 ## 2️⃣. How To Use 使用
 
 **1.以下是常用的style **
-```
+<pre><code>
 /**
 左侧 icon label  右侧 icon  label indicator
 0x   1    1          1     1       1
@@ -39,10 +39,10 @@ WRCellStyleIconLabel_Indicator      = 0x11001,
 WRCellStyleIconLabel_Icon           = 0x11100,
 WRCellStyleIconLabel_LabelIndicator = 0x11011,
 };
-```
+</code></pre>
 
 **2. 接口**
-```
+<pre><code>
 - (instancetype)initWithFrame:(CGRect)frame lineStyle:(WRCellStyle)style;
 - (instancetype)initWithLineStyle:(WRCellStyle)style;
 /** 设置底部的那条线距左边为0 */
@@ -53,11 +53,10 @@ WRCellStyleIconLabel_LabelIndicator = 0x11011,
 - (void)setHideBottomLine:(BOOL)hideBottomLine;
 /** 显示上面的横线，默认不显示 */
 - (void)setShowTopLine:(BOOL)showTopLine;
-```
+</code></pre>
 
 **3. 举例说明**
-```
-
+<pre><code>
 - (WRCellView *)signView {
 if (_signView == nil) {
 _signView = [[WRCellView alloc] initWithLineStyle:WRCellStyleLabel_LabelIndicator];
@@ -67,7 +66,7 @@ _signView.rightLabel.text = @"爱别人的同事也是爱自己";
 }
 return _signView;
 }
-```
+</code></pre>
 
 
 ## 3️⃣. More 更多 
