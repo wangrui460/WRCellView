@@ -52,13 +52,9 @@ FOUNDATION_EXTERN UIColor *CellRightTextColor;
 
 - (instancetype)initWithFrame:(CGRect)frame lineStyle:(WRCellStyle)style;
 - (instancetype)initWithLineStyle:(WRCellStyle)style;
-/** 设置底部的那条线距左边为0 */
 - (void)setLineStyleWithLeftZero;
-/** 设置底部的那条线与label的左侧对齐 */
 - (void)setLineStyleWithLeftEqualLabelLeft;
-/** 设置隐藏底部的那条线 */
 - (void)setHideBottomLine:(BOOL)hideBottomLine;
-/** 显示上面的横线，默认不显示 */
 - (void)setShowTopLine:(BOOL)showTopLine;
 @end
 
