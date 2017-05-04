@@ -3,9 +3,7 @@
 
 ## 0️⃣. Demo 
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/微信个人信息.png)
-
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/高德地图我的.png)
-
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/NBA更多.png)
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/自定义view.png)
 
