@@ -132,6 +132,7 @@
         _wrCellView1.leftLabel.textColor = _wrCellView1.rightLabel.textColor;
         _wrCellView1.leftLabel.font = _wrCellView1.rightLabel.font;
         [_wrCellView1 setHideBottomLine:YES];
+        [_wrCellView1 setCanNotSelected];
     }
     return _wrCellView1;
 }
@@ -185,6 +186,7 @@
         _wrCellView6.leftLabel.textColor = _wrCellView6.rightLabel.textColor;
         _wrCellView6.leftLabel.font = _wrCellView6.rightLabel.font;
         [_wrCellView6 setHideBottomLine:YES];
+        [_wrCellView6 setCanNotSelected];
     }
     return _wrCellView6;
 }
@@ -207,6 +209,7 @@
         _wrCellView8.leftLabel.textColor = _wrCellView8.rightLabel.textColor;
         _wrCellView8.leftLabel.font = _wrCellView8.rightLabel.font;
         [_wrCellView8 setHideBottomLine:YES];
+        [_wrCellView8 setCanNotSelected];
     }
     return _wrCellView8;
 }

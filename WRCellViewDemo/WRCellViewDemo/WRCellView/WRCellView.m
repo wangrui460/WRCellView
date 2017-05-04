@@ -41,6 +41,7 @@ UIColor *CellRightTextColor = nil;
 @implementation WRCellView
 {
     CGFloat mCellBottomLineX;
+    BOOL mCanNotSelected;
 }
 
 + (void)load
@@ -85,14 +86,14 @@ UIColor *CellRightTextColor = nil;
         __weak typeof(self) weakSelf = self;
         [self setTapActionWithBlock:^
         {
-            __strong typeof(self) self = weakSelf;
-            self.backgroundColor = CellSelectedColor;
+            __strong typeof(self) pThis = weakSelf;
+            pThis.backgroundColor = CellSelectedColor;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
             {
-                if (self.tapBlock)
+                [pThis touchesCancelled:[NSSet new] withEvent:nil];
+                if (pThis.tapBlock)
                 {
-                    self.tapBlock();
-                    [self touchesCancelled:[NSSet new] withEvent:nil];
+                    pThis.tapBlock();
                 }
             });
         }];
@@ -112,16 +113,26 @@ UIColor *CellRightTextColor = nil;
     self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.backgroundColor = CellSelectedColor;
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (mCanNotSelected == NO) {
+        self.backgroundColor = CellSelectedColor;
+    }
 }
 
 // 当取消选中后
--(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.backgroundColor = CellNormalColor;
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (mCanNotSelected == NO) {
+        self.backgroundColor = CellNormalColor;
+    }
 }
--(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.backgroundColor = CellNormalColor;
+
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (mCanNotSelected == NO) {
+        self.backgroundColor = CellNormalColor;
+    }
 }
 
 - (void)setupView
@@ -276,6 +287,12 @@ UIColor *CellRightTextColor = nil;
 
 - (void)setShowTopLine:(BOOL)showTopLine {
     _topLine.hidden = !showTopLine;
+}
+
+- (void)setCanNotSelected
+{
+    mCanNotSelected = YES;
+    [self setTapActionWithBlock:nil];
 }
 
 - (UIImageView *)leftIcon {

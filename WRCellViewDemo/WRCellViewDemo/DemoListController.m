@@ -11,6 +11,7 @@
 #import "MineInfoController.h"
 #import "GaoDeSettingController.h"
 #import "NBAController.h"
+#import "ExternController.h"
 
 @interface DemoListController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -50,7 +51,9 @@
         case 3:
             str = @"NBA";
             break;
-            
+        case 4:
+            str = @"添加自定义view";
+            break;
         default:
             break;
     }
@@ -90,6 +93,12 @@
         {
             NBAController *nbaVC = [NBAController new];
             [self.navigationController pushViewController:nbaVC animated:YES];
+        }
+            break;
+        case 4:
+        {
+            ExternController *externVC = [ExternController new];
+            [self.navigationController pushViewController:externVC animated:YES];
         }
             break;
         default:

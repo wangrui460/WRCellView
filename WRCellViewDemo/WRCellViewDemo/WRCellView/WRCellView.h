@@ -60,6 +60,8 @@ FOUNDATION_EXTERN UIColor *CellRightTextColor;
 - (void)setHideBottomLine:(BOOL)hideBottomLine;
 /** 显示上面的横线，默认不显示 */
 - (void)setShowTopLine:(BOOL)showTopLine;
+/** 设置自己不可以点击 */
+- (void)setCanNotSelected;
 @end
 
 
