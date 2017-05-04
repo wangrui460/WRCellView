@@ -77,7 +77,7 @@ More infomation please view code.
 欢迎给我提pull requests。  
 更多信息详见代码，也可查看我的简书: [我的简书](http://www.jianshu.com/p/540a7e6f7b40)
 
-最近更新: 
+**最近更新:** 
 2017.05.04 16:18
 1. 添加自定义view Demo  2. 设置不可点击接口
 
