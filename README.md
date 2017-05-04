@@ -7,6 +7,7 @@
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/高德地图我的.png)
 
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/NBA更多.png)
+![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/自定义view.png)
 
 ## 1️⃣. Installation 安装
 
@@ -79,6 +80,8 @@ More infomation please view code.
 更多信息详见代码，也可查看我的简书: [我的简书](http://www.jianshu.com/p/540a7e6f7b40)
 
 最近更新: 
+2017.05.04 16:18
+1. 添加自定义view Demo  2. 设置不可点击接口
 
 
 ## 4️⃣. 期待
