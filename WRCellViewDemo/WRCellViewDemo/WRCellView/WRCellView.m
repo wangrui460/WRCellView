@@ -9,7 +9,7 @@
 #import "WRCellView.h"
 #import <objc/runtime.h>
 
-#define kScreenWidth      [UIScreen mainScreen].bounds.size.width
+#define kSelfWidth        self.bounds.size.width
 #define kSelfHeight       self.bounds.size.height
 #define kBottomLineHeight 0.5
 #define kTopLineHeight    0.5
@@ -36,6 +36,7 @@ UIColor *CellRightTextColor = nil;
 @property (nonatomic, strong) UIImageView *rightIcon;
 @property (nonatomic, strong) UILabel *rightLabel;
 @property (nonatomic, strong) UIImageView *rightIndicator;
+@property (nonatomic, strong) UIView *cellSelectedBackground;
 @end
 
 @implementation WRCellView
@@ -46,7 +47,7 @@ UIColor *CellRightTextColor = nil;
 
 + (void)load
 {
-    CellSelectedColor  = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0];
+    CellSelectedColor  = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1.0];
     CellNormalColor    = [UIColor whiteColor];
     CellSegmentColor   = [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1.0];
     CellLeftTextColor  = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
@@ -63,15 +64,10 @@ UIColor *CellRightTextColor = nil;
         [self setTapActionWithBlock:^
         {
             __strong typeof(self) pThis = weakSelf;
-            pThis.backgroundColor = CellSelectedColor;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+            if (pThis.tapBlock)
             {
-                if (pThis.tapBlock)
-                {
-                    pThis.tapBlock();
-                    [pThis touchesCancelled:[NSSet new] withEvent:nil];
-                }
-            });
+                pThis.tapBlock();
+            }
         }];
     }
     return self;
@@ -87,15 +83,10 @@ UIColor *CellRightTextColor = nil;
         [self setTapActionWithBlock:^
         {
             __strong typeof(self) pThis = weakSelf;
-            pThis.backgroundColor = CellSelectedColor;
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+            if (pThis.tapBlock)
             {
-                [pThis touchesCancelled:[NSSet new] withEvent:nil];
-                if (pThis.tapBlock)
-                {
-                    pThis.tapBlock();
-                }
-            });
+                pThis.tapBlock();
+            }
         }];
     }
     return self;
@@ -104,19 +95,19 @@ UIColor *CellRightTextColor = nil;
 - (void)setLineStyleWithLeftZero
 {
     mCellBottomLineX = 0;
-    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kSelfWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
 - (void)setLineStyleWithLeftEqualLabelLeft
 {
     mCellBottomLineX = kMargin + self.leftIcon.image.size.width + kPadding;
-    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kSelfWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (mCanNotSelected == NO) {
-        self.backgroundColor = CellSelectedColor;
+        [self insertSubview:self.cellSelectedBackground atIndex:0];
     }
 }
 
@@ -124,15 +115,25 @@ UIColor *CellRightTextColor = nil;
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (mCanNotSelected == NO) {
-        self.backgroundColor = CellNormalColor;
+        [self fadeDismissSelectedBackground];
     }
 }
 
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (mCanNotSelected == NO) {
-        self.backgroundColor = CellNormalColor;
+        [self fadeDismissSelectedBackground];
     }
+}
+
+- (void)fadeDismissSelectedBackground
+{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.cellSelectedBackground.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.cellSelectedBackground removeFromSuperview];
+        self.cellSelectedBackground.alpha = 1;
+    }];
 }
 
 - (void)setupView
@@ -168,7 +169,7 @@ UIColor *CellRightTextColor = nil;
     self.topLine = [[UIView alloc] init];
     self.topLine.backgroundColor = CellSegmentColor;
     [self addSubview:self.topLine];
-    self.topLine.frame = CGRectMake(0, 0, kScreenWidth, kTopLineHeight);
+    self.topLine.frame = CGRectMake(0, 0, kSelfWidth, kTopLineHeight);
     [self bringSubviewToFront:self.topLine];
     self.topLine.hidden = YES;
 }
@@ -176,6 +177,8 @@ UIColor *CellRightTextColor = nil;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    self.cellSelectedBackground.frame = self.bounds;
+    
     //----------------------- 左侧
     if (self.style & 0x10000)
     {
@@ -210,7 +213,7 @@ UIColor *CellRightTextColor = nil;
     {
         CGFloat rightIndicatorWidth  = self.rightIndicator.image.size.width;
         CGFloat rightIndicatorHeight = self.rightIndicator.image.size.height;
-        CGFloat rightIndicatorX = kScreenWidth - kMargin - rightIndicatorWidth;
+        CGFloat rightIndicatorX = kSelfWidth - kMargin - rightIndicatorWidth;
         CGFloat rightIndicatorY = (kSelfHeight - rightIndicatorHeight - kBottomLineHeight) / 2.0;
         self.rightIndicator.frame = CGRectMake(rightIndicatorX, rightIndicatorY, rightIndicatorWidth, rightIndicatorHeight);
         rightTmpView = self.rightIndicator;
@@ -229,7 +232,7 @@ UIColor *CellRightTextColor = nil;
         }
         else
         {
-            CGFloat rightLabelX = kScreenWidth - kMargin - rightLabelWidth;
+            CGFloat rightLabelX = kSelfWidth - kMargin - rightLabelWidth;
             CGFloat rightLabelY = (kSelfHeight - rightLabelHeight - kBottomLineHeight) / 2.0;
             self.rightLabel.frame = CGRectMake(rightLabelX, rightLabelY, rightLabelWidth, rightLabelHeight);
         }
@@ -248,12 +251,12 @@ UIColor *CellRightTextColor = nil;
         }
         else
         {
-            CGFloat rightIconX = kScreenWidth - kMargin - rightIconWidth;
+            CGFloat rightIconX = kSelfWidth - kMargin - rightIconWidth;
             CGFloat rightIconY = (kSelfHeight - rightIconHeight - kBottomLineHeight) / 2.0;
             self.rightIcon.frame = CGRectMake(rightIconX, rightIconY, rightIconWidth, rightIconHeight);
         }
     }
-    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kScreenWidth - mCellBottomLineX, kBottomLineHeight);
+    self.bottomLine.frame = CGRectMake(mCellBottomLineX, kSelfHeight - 0.5, kSelfWidth - mCellBottomLineX, kBottomLineHeight);
 }
 
 #pragma mark -  设置简单的轻点 block事件
@@ -263,6 +266,7 @@ UIColor *CellRightTextColor = nil;
     if (!gesture)
     {
         gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleActionForTapGesture:)];
+        gesture.cancelsTouchesInView = NO;
         [self addGestureRecognizer:gesture];
         objc_setAssociatedObject(self, &kActionHandlerTapGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
     }
@@ -332,6 +336,14 @@ UIColor *CellRightTextColor = nil;
         _rightLabel.textColor = CellRightTextColor;
     }
     return _rightLabel;
+}
+
+- (UIView *)cellSelectedBackground {
+    if (_cellSelectedBackground == nil) {
+        _cellSelectedBackground = [UIView new];
+        _cellSelectedBackground.backgroundColor = CellSelectedColor;
+    }
+    return _cellSelectedBackground;
 }
 
 @end
