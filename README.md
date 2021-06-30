@@ -84,10 +84,8 @@ More infomation please view code.
 1. 添加自定义view Demo  2. 设置不可点击接口
 
 
-## 4️⃣. 期待
-
-如果在使用过程中遇到BUG，或发现功能不够用，希望你能Issues我
-如果觉得好用请Star!
-谢谢!
+## 4️⃣. 联系我
+扫码回复1获取面试资料（持续更新）
+![](https://user-images.githubusercontent.com/11909313/123933944-6a4abe00-d9c5-11eb-83ca-379313a2af7c.png)
 
 你觉得对你有所帮助的话，请献上宝贵的Star！！！ 不胜感激！！！
