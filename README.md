@@ -1,6 +1,11 @@
 # WRCellView
 自定义View，类似tableView的系统cell，使用方便
 
+## iOS 技术交流
+我创建了一个 微信 iOS 技术交流群，欢迎小伙伴们加入一起交流学习~
+	
+可以加我微信我拉你进去（备注iOS），我的微信号 wr1204607318
+
 ## 0️⃣. Demo 
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/微信个人信息.png)
 ![image](https://github.com/wangrui460/WRCellView/raw/master/screenshots/高德地图我的.png)
